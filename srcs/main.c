@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:41:28 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/20 18:42:36 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/20 20:53:37 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,8 @@
 
 int		main(void)
 {
+	t_anthill	*anthill;
+
+	anthill = fill_anthill();
 	return (0);
 }
