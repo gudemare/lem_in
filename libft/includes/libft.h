@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 00:06:46 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/20 22:22:43 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 00:11:21 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 ** putarr_fd
 ** Graph data structure (see wikipedia for functions)
 ** strip_whitespaces
+** double-linked lists
 */
 
 #ifndef LIBFT_H
