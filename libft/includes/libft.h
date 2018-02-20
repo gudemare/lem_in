@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 00:06:46 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/17 18:54:21 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:18:39 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 ** Truly generic functons with struct & union ?
 ** anytoa
 ** putarr_fd
+** Graph data structure (see wikipedia for functions)
 */
 
 #ifndef LIBFT_H
@@ -216,7 +217,7 @@ void				ft_strclr(char *s);
 void				ft_strdel(char **as);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-void				ft_errno_exit(int display_errno, int should_exit);
+void				ft_exit(char *message, int display_errno, int should_exit);
 
 /*
 **          <==================== Wide String functions ====================> **

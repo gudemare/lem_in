@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_errno_exit.c                                    :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/08/12 11:21:30 by gudemare          #+#    #+#             */
-/*   Updated: 2017/08/12 11:44:11 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/20 19:31:14 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void	ft_errno_exit(int display_errno, int should_exit)
+void	ft_exit(char *message, int display_errno, int should_exit)
 {
+	if (message)
+	{
+		ft_dprintf(2, "%s\n", message);
+		ft_strdel(&message);
+	}
 	if (display_errno)
 		ft_dprintf(2, "Fatal error : %s\n", strerror(errno));
 	if (should_exit)
