@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/20 23:39:53 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 00:02:32 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,28 @@
 
 # include "libft.h"
 
+/*
+** Graph data structure is as follows :
+** t_anthill is the whole graph.
+** |-entry_file is the complete, unchanged text copy of the valid input.
+** |-ant_nb is the number of ants. (duh)
+** |-start_node is the *name* of the start node.
+** |-end_node is the *name* of the end node.
+** |-nodes is a linked list containing all nodes.
+** This linked list contains a t_node struct as its *content, as follows :
+** |-node is the name of the node.
+** |-coord_x and coord_y are coordinates of the node in 2D space.
+** |-links is a linked list containing each individual node *name*
+**			linked to this node.
+*/
+
 typedef struct		s_anthill
 {
 	char			*entry_file;
-	t_list			nodes;
 	int				ant_nb;
 	char			*start_node;
 	char			*end_node;
+	t_list			nodes;
 }					t_anthill;
 
 typedef struct		s_node
