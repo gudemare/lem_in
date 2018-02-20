@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 20:46:43 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/20 22:35:48 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/20 23:47:09 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,44 @@ static void		get_ant_nb(t_anthill *anthill)
 		ft_exit("Error : Insufficient memory.", 1, 1);
 }
 
-static void		get_nodes(t_anthill *anthill)
+static int		add_data(t_anthill *anthill, char *str, int line_type)
+{
+	static int	last_command = e_OTHER;
+	static int	type_processed = e_NODE;
+
+	last_command = get_command(str);
+	if (line_type == e_COMMENT && line_type == e_COMMAND)
+		return (1);
+	if (line_type == e_LINK)
+	{
+		type_processed = e_LINK;
+		return (add_link(anthill, str));
+	}
+	if (line_type == e_NODE)
+	{
+		if (type_processed == e_LINK)
+			return (0);
+		return (add_node(anthill, str, last_command));
+	}
+	return (1);
+}
+
+static void		get_graph(t_anthill *anthill)
 {
 	char	*str;
 	int		ret;
+	int		line_type;
 
 	ret = get_next_line(0, &str, 64);
-	while (ret == 1)
+	while (ret == 1 && (line_type = get_line_type(str)) != e_INCORRECT)
 	{
+		if (!add_data(anthill, str, line_type))
+			break ;
+		if (!(anthill->entry_file = ft_strjoin(anthill->entry_file, str))
+			|| !(anthill->entry_file = ft_strjoin(anthill->entry_file, "\n")))
+			ft_exit("Error : Insufficient memory.", 1, 1);
 		ret = get_next_line(0, &str, 64);
 	}
-	(void)anthill;
 	ft_strdel(&str);
 }
 
@@ -73,6 +100,6 @@ t_anthill		*fill_anthill(void)
 	if (!(anthill = ft_memalloc(sizeof(t_anthill))))
 		ft_exit("Error : Insufficient memory.", 1, 1);
 	get_ant_nb(anthill);
-	get_nodes(anthill);
+	get_graph(anthill);
 	return (anthill);
 }

@@ -6,7 +6,7 @@
 #    By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2018/02/20 21:12:16 by gudemare         ###   ########.fr        #
+#    Updated: 2018/02/20 23:29:15 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ HEADERS_DIR	=	includes/
 SRCS_DIR	=	srcs/
 SRCS_LIST	=	\
 				main.c \
-				parsing.c
+				parsing.c \
+				parsing_utils.c \
+				graph_creation.c
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_LIST))
 
 OBJS_DIR	=	./objs/
