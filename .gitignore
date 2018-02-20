@@ -1,0 +1,5 @@
+Session.vim
+lem-in
+.undodir
+*.o
+*.a
