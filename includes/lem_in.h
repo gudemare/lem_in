@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 19:10:17 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:13:00 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ int					get_command(char *str);
 int					add_node(t_anthill *anthill, char *node_input,
 					int last_command);
 int					add_link(t_anthill *anthill, char *link_input);
+t_node				*get_node_by_name(t_anthill *anthill, char *name);
 
 #endif

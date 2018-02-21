@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:41:28 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 19:29:38 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:49:03 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,7 @@ void		empty_node(void *node_input, size_t size)
 
 	(void)size;
 	node = (t_node *)node_input;
-	if (!node_input)
-		ft_dprintf(2, "Emptying WTFnode \'%s\' at %d %d...\n", node->node_name, node->coord_x, node->coord_y);
-	ft_dprintf(2, "Emptying node \'%s\' at %d %d...\n", node->node_name, node->coord_x, node->coord_y);
+	ft_dprintf(2, "Emptying node \'%s\' (weight %d) at %d %d...\n", node->node_name, node->weight, node->coord_x, node->coord_y);
 	if (node->node_name)
 		ft_strdel(&(node->node_name));
 	if (node->links)

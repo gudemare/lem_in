@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 20:46:43 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 19:13:10 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:36:18 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,23 @@ static int		add_data(t_anthill *anthill, char *str, int line_type)
 {
 	static int	last_command = e_OTHER;
 	static int	type_processed = e_NODE;
+	int			ret;
 
-	last_command = get_command(str);
-	if (line_type == e_COMMENT && line_type == e_COMMAND)
-		return (1);
-	if (line_type == e_LINK)
+	ret = 0;
+	if (line_type == e_COMMENT || line_type == e_COMMAND)
+		ret = 1;
+	else if (line_type == e_LINK)
 	{
 		type_processed = e_LINK;
-		return (add_link(anthill, str));
+		ret = add_link(anthill, str);
 	}
-	if (line_type == e_NODE)
-		return ((type_processed == e_LINK) ? 0 :
-			add_node(anthill, str, last_command));
-		return (1);
+	else if (line_type == e_NODE)
+	{
+		ret = (type_processed == e_LINK) ? 0 :
+			add_node(anthill, str, last_command);
+	}
+	last_command = get_command(str);
+	return (ret);
 }
 
 static void		get_graph(t_anthill *anthill)
@@ -85,9 +89,12 @@ static void		get_graph(t_anthill *anthill)
 		if (!(anthill->entry_file = ft_strjoin(anthill->entry_file, str))
 			|| !(anthill->entry_file = ft_strjoin(anthill->entry_file, "\n")))
 			ft_exit("Error : Insufficient memory.", 1, 1);
+		ft_strdel(&str);
 		ret = get_next_line(0, &str, 64);
 	}
 	ft_strdel(&str);
+	if (anthill->end_node)
+		anthill->end_node->weight = 0;
 }
 
 t_anthill		*fill_anthill(void)
