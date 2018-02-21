@@ -6,14 +6,14 @@
 #    By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2018/02/21 20:22:35 by gudemare         ###   ########.fr        #
+#    Updated: 2018/02/21 20:59:49 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	lem-in
 
 CC			=	clang
-CFLAGS		=	-Wall -Wextra #-Werror
+CFLAGS		=	-Wall -Wextra -Werror
 
 LIB			=	libft/libft.a
 HEADERS_LIB	=	libft/includes
@@ -26,6 +26,7 @@ SRCS_LIST	=	\
 				parsing.c \
 				parsing_utils.c \
 				graph_utils.c \
+				graph_resolution.c \
 				graph_creation.c
 SRCS		=	$(addprefix $(SRCS_DIR), $(SRCS_LIST))
 
