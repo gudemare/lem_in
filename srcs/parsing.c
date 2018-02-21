@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 20:46:43 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/20 23:47:09 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 19:13:10 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,9 @@ static int		add_data(t_anthill *anthill, char *str, int line_type)
 		return (add_link(anthill, str));
 	}
 	if (line_type == e_NODE)
-	{
-		if (type_processed == e_LINK)
-			return (0);
-		return (add_node(anthill, str, last_command));
-	}
-	return (1);
+		return ((type_processed == e_LINK) ? 0 :
+			add_node(anthill, str, last_command));
+		return (1);
 }
 
 static void		get_graph(t_anthill *anthill)
@@ -99,6 +96,9 @@ t_anthill		*fill_anthill(void)
 
 	if (!(anthill = ft_memalloc(sizeof(t_anthill))))
 		ft_exit("Error : Insufficient memory.", 1, 1);
+	anthill->nodes = NULL;
+	anthill->start_node = NULL;
+	anthill->end_node = NULL;
 	get_ant_nb(anthill);
 	get_graph(anthill);
 	return (anthill);

@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 17:13:28 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 19:10:17 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,23 @@
 **			linked to this node.
 */
 
+typedef struct		s_node
+{
+	char			*node_name;
+	int				coord_y;
+	int				coord_x;
+	int				weight;
+	t_list			*links;
+}					t_node;
+
 typedef struct		s_anthill
 {
 	char			*entry_file;
 	int				ant_nb;
-	char			*start_node;
-	char			*end_node;
+	t_node			*start_node;
+	t_node			*end_node;
 	t_list			*nodes;
 }					t_anthill;
-
-typedef struct		s_node
-{
-	char			*node;
-	int				coord_y;
-	int				coord_x;
-	t_list			*links;
-}					t_node;
 
 enum				e_line_type
 {
@@ -66,7 +67,8 @@ enum				e_command
 t_anthill			*fill_anthill(void);
 int					get_line_type(char *str);
 int					get_command(char *str);
-int					add_node(t_anthill *anthill, char *node, int last_command);
-int					add_link(t_anthill *anthill, char *link);
+int					add_node(t_anthill *anthill, char *node_input,
+					int last_command);
+int					add_link(t_anthill *anthill, char *link_input);
 
 #endif

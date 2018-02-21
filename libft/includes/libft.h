@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 00:06:46 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 00:11:21 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 18:49:56 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,8 @@ int					get_next_line(const int fd, char **line,
 
 /*
 ** <============================ List functions ============================> **
+** ft_lstnew() copies the *content. Adding a function to just index it
+** would be useful.
 */
 
 typedef struct		s_list
