@@ -1,0 +1,3 @@
+- Memory freeing function empty_anthill()
+- add_node() and add_link() functions to store graph
+- Resolution.

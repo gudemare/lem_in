@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:29:02 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/20 23:39:43 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:06:17 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 /*
 ** If a node is incorrect, then we have no links because input stops.
 ** We just have to display an error and exit.
+** The char* input on both functions is the untreated entry line.
 */
 
 int		add_node(t_anthill *anthill, char *node, int last_command)
