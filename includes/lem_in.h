@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lem_in.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 20:13:00 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 20:56:38 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 typedef struct		s_node
 {
 	char			*node_name;
+	int				weight;
 	int				coord_y;
 	int				coord_x;
-	int				weight;
 	t_list			*links;
 }					t_node;
 
@@ -46,6 +46,7 @@ typedef struct		s_anthill
 	t_node			*start_node;
 	t_node			*end_node;
 	t_list			*nodes;
+	t_list			*shortest_path;
 }					t_anthill;
 
 enum				e_line_type
