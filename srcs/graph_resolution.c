@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 18:15:17 by mgonon            #+#    #+#             */
-/*   Updated: 2018/02/21 21:24:24 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/21 21:37:34 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,27 @@ static void	apply_weight(t_node *node, t_node *start_node, int weight)
 {
 	t_list	*links;
 
+	printf("weight = %d\n", weight);
 	links = node->links;
-	if (node == start_node)
-	{
-		node->weight = weight;
-		return ;
-	}
 	while (links)
 	{
-		if (node->weight == -1 || weight < node->weight)
-			node->weight = weight;
-		if (((t_node *)(links->content))->weight == -1
-			|| ((t_node *)(links->content))->weight > node->weight + 1)
-			apply_weight(links->next->content, start_node, weight + 1);
-		links = links->next;
+		printf("name = %s\n", node->node_name);
+		
 	}
+	// if (node == start_node)
+	// {
+	// 	node->weight = weight;
+	// 	return ;
+	// }
+	// while (links)
+	// {
+	// 	if (node->weight == -1 || weight < node->weight)
+	// 		node->weight = weight;
+	// 	if (((t_node *)(links->content))->weight == -1
+	// 		|| ((t_node *)(links->content))->weight > node->weight + 1)
+	// 		apply_weight(links->next->content, start_node, weight + 1);
+	// 	links = links->next;
+	// }
 }
 
 /*
