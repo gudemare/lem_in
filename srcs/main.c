@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:41:28 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 20:49:03 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 21:25:13 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int			main(void)
 	anthill = fill_anthill();
 	ft_putendl(anthill->entry_file);
 	ft_putendl("Here comes the resolution.");
+	resolve_graph(anthill);
 	empty_anthill(anthill);
 	return (0);
 }

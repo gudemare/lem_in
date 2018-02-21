@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 18:15:17 by mgonon            #+#    #+#             */
-/*   Updated: 2018/02/21 20:46:31 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/21 21:24:24 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,23 @@
 ** Call apply_weight with end_node and weight 0
 */
 
-void	apply_weight(t_node *node, int weight)
+static void	apply_weight(t_node *node, t_node *start_node, int weight)
 {
 	t_list	*links;
 
 	links = node->links;
-	while (links && node != start_node)
+	if (node == start_node)
+	{
+		node->weight = weight;
+		return ;
+	}
+	while (links)
 	{
 		if (node->weight == -1 || weight < node->weight)
 			node->weight = weight;
-		if (links->next->content->weight == -1 || links->next->content->weight > node->weight)
-			apply_weight(links->next->content, weight++);
+		if (((t_node *)(links->content))->weight == -1
+			|| ((t_node *)(links->content))->weight > node->weight + 1)
+			apply_weight(links->next->content, start_node, weight + 1);
 		links = links->next;
 	}
 }
@@ -34,12 +40,13 @@ void	apply_weight(t_node *node, int weight)
 /*
 ** Call shortest_path with start_node
 */
-
-t_links	*shortest_path(t_node *node)
+/*
+t_list	*shortest_path(t_node *node, t_list *shortest_path)
 {
 	t_list	*links;
 	int		weight;
 
+	return (NULL);
 	links = node->links;
 	weight = node->weight;
 	if (weight == 0)
@@ -51,7 +58,13 @@ t_links	*shortest_path(t_node *node)
 		node = links->content;
 	}
 	if (link_weight == weight - 1)
-		shortest_path(node);
+		shortest_path(node, shortest_path);
 	else
 		ft_exit("Error : No path found.", 0, 1);
+}*/
+
+void	resolve_graph(t_anthill *anthill)
+{
+	apply_weight(anthill->end_node, anthill->start_node, 0);
+//	shortest_path(anthill->start_node, anthill->shortest_path);
 }
