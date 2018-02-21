@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:41:28 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 21:25:13 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/21 21:38:12 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void		empty_node_links(void *links_input, size_t size)
 	t_list	*links;
 
 	(void)size;
-	ft_dprintf(2, "Emptying node links...\n");
 	links = (t_list *)links_input;
+	ft_dprintf(2, "Emptying node link : %s...\n", (char *)(links->content));
 	if (links->content)
 		ft_strdel((char **)&(links->content));
 }

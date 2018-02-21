@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:29:02 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 20:48:17 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 21:36:26 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,5 +96,7 @@ int				add_link(t_anthill *anthill, char *link_input)
 	if (!(link_end = get_node_by_name(anthill, tmp_name)))
 		ft_exit("Error : Bad node name in link.", 1, 1);
 	ft_strdel(&tmp_name);
-	return (add_link_list(link_start, link_end));
+	add_link_list(link_start, link_end);
+	add_link_list(link_end, link_start);
+	return (1);
 }
