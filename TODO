@@ -1,3 +1,6 @@
-- add_node() and add_link() functions to store graph
 - solve memory leaks when exiting during graph creation
 - Resolution.
+-- Apply weight to each node.
+-- Solve for shortest path.
+- Display of solution
+- Check for leaks after program end

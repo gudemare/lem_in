@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:41:28 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 21:38:12 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 22:11:50 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,8 @@
 
 void		empty_node_links(void *links_input, size_t size)
 {
-	t_list	*links;
-
 	(void)size;
-	links = (t_list *)links_input;
-	ft_dprintf(2, "Emptying node link : %s...\n", (char *)(links->content));
-	if (links->content)
-		ft_strdel((char **)&(links->content));
+	(void)links_input;
 }
 
 void		empty_node(void *node_input, size_t size)
@@ -30,11 +25,13 @@ void		empty_node(void *node_input, size_t size)
 
 	(void)size;
 	node = (t_node *)node_input;
-	ft_dprintf(2, "Emptying node \'%s\' (weight %d) at %d %d...\n", node->node_name, node->weight, node->coord_x, node->coord_y);
+	ft_dprintf(2, "Emptying node \'%s\' (weight %d)...\n",
+		node->node_name, node->weight);
 	if (node->node_name)
 		ft_strdel(&(node->node_name));
 	if (node->links)
 		ft_lstdel(&(node->links), empty_node_links);
+	free(node);
 }
 
 static void	empty_anthill(t_anthill *anthill)
@@ -55,6 +52,8 @@ int			main(void)
 	ft_putendl(anthill->entry_file);
 	ft_putendl("Here comes the resolution.");
 	resolve_graph(anthill);
+	ft_putendl("");
+	disp_graph_data(anthill);
 	empty_anthill(anthill);
 	return (0);
 }
