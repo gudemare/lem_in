@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 00:02:32 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/21 17:13:28 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct		s_anthill
 	int				ant_nb;
 	char			*start_node;
 	char			*end_node;
-	t_list			nodes;
+	t_list			*nodes;
 }					t_anthill;
 
 typedef struct		s_node
