@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:29:02 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 16:53:14 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/22 18:17:30 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int				add_node(t_anthill *anthill, char *node_input, int last_command)
 	return (1);
 }
 
-int		add_link_list(t_node *link_start, t_node *link_end)
+static int		add_link_list(t_node *link_start, t_node *link_end)
 {
 	t_list	*link_list_new;
 
