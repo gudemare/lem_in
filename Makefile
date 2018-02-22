@@ -6,7 +6,7 @@
 #    By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2018/02/22 18:54:29 by gudemare         ###   ########.fr        #
+#    Updated: 2018/02/22 22:29:51 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ HEADERS_DIR	=	includes/
 
 SRCS_DIR	=	srcs/
 SRCS_LIST	=	\
-				display_path.c \
 				graph_creation.c \
 				graph_resolution.c \
 				graph_utils.c \
