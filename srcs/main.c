@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:41:28 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 22:29:51 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/23 13:23:43 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		empty_node(void *node_input, size_t size)
 	free(node);
 }
 
-static void	empty_anthill(t_anthill *anthill)
+void		empty_anthill(t_anthill *anthill)
 {
 	if (anthill->entry_file)
 		ft_strdel(&(anthill->entry_file));
@@ -44,15 +44,15 @@ static void	empty_anthill(t_anthill *anthill)
 	free(anthill);
 }
 
-static void	display_path(char **path, int path_len, int ant_nb)
+static void	display_path(char **path, size_t path_len, int ant_nb)
 {
-	int	last_ant;
-	int	last_ant_pos;
-	int	pos;
+	int		last_ant;
+	int		last_ant_pos;
+	int		pos;
 
 	last_ant = 1;
 	last_ant_pos = 1;
-	while (last_ant_pos < path_len)
+	while (last_ant_pos < (int)path_len)
 	{
 		ft_printf("L%d-%s", last_ant, path[last_ant_pos]);
 		pos = 1;

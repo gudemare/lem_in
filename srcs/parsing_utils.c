@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:18:41 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 20:16:34 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/23 13:23:25 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,32 @@
 ** shall be done in link or node-adding function.
 */
 
-int		get_line_type(char *str)
+static int	ft_sec_strlen(const char *s)
+{
+	size_t size;
+
+	size = 0;
+	if (s)
+		while (s[size])
+			size++;
+	return (size);
+}
+
+char		*ft_strjoin_free(char **s1, char *s2)
+{
+	char			*dst;
+
+	if (!(dst = ft_strnew(ft_sec_strlen(*s1) + ft_sec_strlen(s2))))
+		return (NULL);
+	if (*s1)
+		ft_strcpy(dst, *s1);
+	if (s2)
+		ft_strcat(dst, s2);
+	ft_strdel(s1);
+	return (dst);
+}
+
+int			get_line_type(char *str)
 {
 	if (!*str)
 		return (e_INCORRECT);
@@ -31,7 +56,7 @@ int		get_line_type(char *str)
 	return (e_INCORRECT);
 }
 
-int		get_command(char *str, int last_command)
+int			get_command(char *str, int last_command)
 {
 	if (ft_strequ(str, "##start"))
 	{
