@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:29:02 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 18:17:30 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/22 20:01:55 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int				add_node(t_anthill *anthill, char *node_input, int last_command)
 		anthill->start_node = node;
 	else if (last_command == e_END)
 		anthill->end_node = node;
+	if (node->node_name[0] == 'L' || ft_strchr(node->node_name, '-'))
+		ft_exit("Error : Illegal node name.", 0, 1);
 	return (1);
 }
 
