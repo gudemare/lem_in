@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 00:06:46 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 21:01:13 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/22 22:19:32 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 ** Graph data structure (see wikipedia for functions)
 ** strip_whitespaces
 ** double-linked lists
+** ft_memalloc buggy ?
 */
 
 #ifndef LIBFT_H

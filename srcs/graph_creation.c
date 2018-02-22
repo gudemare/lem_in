@@ -6,10 +6,11 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:29:02 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 20:45:09 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 22:20:32 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "lem_in.h"
 
 /*
@@ -23,7 +24,7 @@ static t_node	*get_node_data(char *node_input)
 	t_node		*node;
 	int			i;
 
-	if (!(node = ft_memalloc(sizeof(t_node))))
+	if (!(node = (t_node *)malloc(sizeof(t_node))))
 		ft_exit("Error : Insufficient memory.", 1, 1);
 	i = ft_strchr_loc(node_input, ' ');
 	if (!(node->node_name = ft_strsub(node_input, 0, i)))

@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/12 21:51:57 by gudemare          #+#    #+#             */
-/*   Updated: 2016/11/13 04:27:43 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 22:20:26 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,10 @@ void	*ft_memalloc(size_t size)
 {
 	void	*dst;
 
-	dst = malloc(sizeof(char) * size);
-	if (!dst)
-		return (0);
+	if (!(dst = malloc(sizeof(char) * size)))
+		return (NULL);
 	while (size > 0)
-	{
-		*((unsigned char *)dst + size) = 0;
-		size--;
-	}
+		*((unsigned char *)dst + size--) = 0;
 	*(unsigned char *)dst = 0;
 	return (dst);
 }
