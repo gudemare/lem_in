@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:29:02 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 20:01:55 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 20:45:09 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ int				add_node(t_anthill *anthill, char *node_input, int last_command)
 	node = get_node_data(node_input);
 	node_list_new->content = (void *)node;
 	ft_lstadd(&(anthill->nodes), node_list_new);
-	if (last_command == e_START)
+	if (last_command == e_START || last_command == e_BOTH)
 		anthill->start_node = node;
-	else if (last_command == e_END)
+	if (last_command == e_END || last_command == e_BOTH)
 		anthill->end_node = node;
 	if (node->node_name[0] == 'L' || ft_strchr(node->node_name, '-'))
 		ft_exit("Error : Illegal node name.", 0, 1);

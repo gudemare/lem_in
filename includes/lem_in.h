@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 18:59:45 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 20:15:28 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,13 @@ enum				e_command
 {
 	e_START,
 	e_END,
+	e_BOTH,
 	e_OTHER
 };
 
 t_anthill			*fill_anthill(void);
 int					get_line_type(char *str);
-int					get_command(char *str);
+int					get_command(char *str, int last_command);
 int					add_node(t_anthill *anthill, char *node_input,
 					int last_command);
 int					add_link(t_anthill *anthill, char *link_input);

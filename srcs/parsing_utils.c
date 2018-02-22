@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:18:41 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/20 23:26:41 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 20:16:34 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,19 @@ int		get_line_type(char *str)
 	return (e_INCORRECT);
 }
 
-int		get_command(char *str)
+int		get_command(char *str, int last_command)
 {
 	if (ft_strequ(str, "##start"))
+	{
+		if (last_command == e_END || last_command == e_BOTH)
+			return (e_BOTH);
 		return (e_START);
+	}
 	if (ft_strequ(str, "##end"))
+	{
+		if (last_command == e_START || last_command == e_BOTH)
+			return (e_BOTH);
 		return (e_END);
+	}
 	return (e_OTHER);
 }

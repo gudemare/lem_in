@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 20:46:43 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 20:10:26 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 20:44:15 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ static int		add_data(t_anthill *anthill, char *str, int line_type)
 		ret = (type_processed == e_LINK) ? 0 :
 			add_node(anthill, str, last_command);
 	}
-	last_command = get_command(str);
+	last_command = get_command(str, last_command);
 	return (ret);
 }
 
