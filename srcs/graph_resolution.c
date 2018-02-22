@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 18:15:17 by mgonon            #+#    #+#             */
-/*   Updated: 2018/02/22 18:46:47 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 19:46:20 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ static void		get_shortest_path(t_node *node, char **shortest_path, int i)
 	t_list	*links;
 	int		weight;
 
-	links = node->links;
+	if (!(links = node->links))
+		ft_exit("Error : No path found.", 0, 1);
 	weight = node->weight;
 	if (weight == 0)
 		return ;
@@ -70,6 +71,7 @@ static void		debug_path(char **shortest_path)
 {
 	int	i;
 
+	return ;
 	i = -1;
 	ft_printf("The shortest path is: ");
 	while (shortest_path[++i])
@@ -83,6 +85,7 @@ void			resolve_graph(t_anthill *anthill)
 
 	apply_weight(anthill->end_node, anthill->start_node, 0);
 	path_size = anthill->start_node->weight + 1;
+	anthill->path_length = path_size;
 	if (!(anthill->shortest_path =
 		(char **)malloc(sizeof(char *) * path_size + 1)))
 		ft_exit("Error : Insufficient memory.", 1, 1);

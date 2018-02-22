@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 20:46:43 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 21:01:09 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/22 18:50:23 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ t_anthill		*fill_anthill(void)
 	anthill->nodes = NULL;
 	anthill->start_node = NULL;
 	anthill->end_node = NULL;
+	anthill->shortest_path = NULL;
 	get_ant_nb(anthill);
 	get_graph(anthill);
 	return (anthill);

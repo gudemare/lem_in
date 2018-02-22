@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 18:41:28 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 18:47:22 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 19:41:51 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void		empty_node_links(void *links_input, size_t size)
 {
+	return ;
 	(void)size;
 	(void)links_input;
 }
@@ -36,6 +37,8 @@ static void	empty_anthill(t_anthill *anthill)
 {
 	if (anthill->entry_file)
 		ft_strdel(&(anthill->entry_file));
+	if (anthill->shortest_path)
+		ft_free_arr(anthill->shortest_path);
 	if (anthill->nodes)
 		ft_lstdel(&(anthill->nodes), empty_node);
 	free(anthill);
@@ -48,6 +51,8 @@ int			main(void)
 	anthill = fill_anthill();
 	ft_putendl(anthill->entry_file);
 	resolve_graph(anthill);
+	display_path(anthill->shortest_path,
+		anthill->path_length, anthill->ant_nb);
 	empty_anthill(anthill);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 18:17:20 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/22 18:59:45 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ typedef struct		s_anthill
 {
 	char			*entry_file;
 	char			**shortest_path;
+	int				path_length;
 	int				ant_nb;
 	t_node			*start_node;
 	t_node			*end_node;
@@ -74,5 +75,6 @@ int					add_link(t_anthill *anthill, char *link_input);
 t_node				*get_node_by_name(t_anthill *anthill, char *name);
 void				resolve_graph(t_anthill *anthill);
 void				disp_graph_data(t_anthill *anthill);
+void				display_path(char **path, int path_len, int ant_nb);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gudemare <gudemare@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 19:46:05 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 22:11:39 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 19:37:18 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ static void		disp_node_data(t_list *elem)
 	ft_dprintf(2, "Node \'%s\' (weight %d) at %d %d .\n",
 		node->node_name, node->weight,
 		node->coord_x, node->coord_y);
-	ft_lstiter(node->links, disp_links_data);
+	if (node->links)
+		ft_lstiter(node->links, disp_links_data);
 }
 
 void			disp_graph_data(t_anthill *anthill)
