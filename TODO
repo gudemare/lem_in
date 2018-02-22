@@ -1,4 +1,3 @@
 - solve memory leaks when exiting during graph creation
 - Check for leaks after program end
-- Check for node coordinates collision
 - Check correct working on all tests maps.

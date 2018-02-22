@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 20:46:43 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 20:44:15 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 22:57:56 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,26 @@ static void		get_ant_nb(t_anthill *anthill)
 	int		i;
 
 	if (get_next_line(0, &str, 64) != 1)
-		ft_exit("Error : Cannot read input.", 1, 1);
+		ft_free_exit(anthill, "Error : Cannot read input.", 1, 1);
 	if (!*str)
 	{
 		ft_strdel(&str);
-		ft_exit("Error : No ant number.", 0, 1);
+		ft_free_exit(anthill, "Error : No ant number.", 0, 1);
 	}
 	i = (*str == '+');
 	while (str[i])
 		if (!ft_isdigit(str[i++]))
 		{
 			ft_strdel(&str);
-			ft_exit("Error : Bad ant number formating.", 0, 1);
+			ft_free_exit(anthill, "Error : Bad ant number formating.", 0, 1);
 		}
 	anthill->ant_nb = ft_atoi(str);
 	anthill->entry_file = ft_strjoin(str, "\n");
 	ft_strdel(&str);
 	if (anthill->ant_nb <= 0)
-		ft_exit("Error : Bad ant number.", 0, 1);
+		ft_free_exit(anthill, "Error : Bad ant number.", 0, 1);
 	if (!anthill->entry_file)
-		ft_exit("Error : Insufficient memory.", 1, 1);
+		ft_free_exit(anthill, "Error : Insufficient memory.", 1, 1);
 }
 
 static int		add_data(t_anthill *anthill, char *str, int line_type)
@@ -88,7 +88,7 @@ static void		get_graph(t_anthill *anthill)
 			break ;
 		if (!(anthill->entry_file = ft_strjoin(anthill->entry_file, str))
 			|| !(anthill->entry_file = ft_strjoin(anthill->entry_file, "\n")))
-			ft_exit("Error : Insufficient memory.", 1, 1);
+			ft_free_exit(anthill, "Error : Insufficient memory.", 1, 1);
 		ft_strdel(&str);
 		ret = get_next_line(0, &str, 64);
 	}
@@ -102,7 +102,7 @@ t_anthill		*fill_anthill(void)
 	t_anthill	*anthill;
 
 	if (!(anthill = ft_memalloc(sizeof(t_anthill))))
-		ft_exit("Error : Insufficient memory.", 1, 1);
+		ft_free_exit(anthill, "Error : Insufficient memory.", 1, 1);
 	anthill->nodes = NULL;
 	anthill->start_node = NULL;
 	anthill->end_node = NULL;
