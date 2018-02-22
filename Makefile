@@ -6,14 +6,14 @@
 #    By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/09/18 01:13:53 by gudemare          #+#    #+#              #
-#    Updated: 2018/02/22 14:18:17 by mgonon           ###   ########.fr        #
+#    Updated: 2018/02/22 17:17:21 by gudemare         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	lem-in
 
 CC			=	clang
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra #-Werror
 
 LIB			=	libft/libft.a
 HEADERS_LIB	=	libft/includes
@@ -64,6 +64,7 @@ all: $(NAME)
 $(NAME) : $(LIB) $(OBJS)
 	@$(CC) $(CFLAGS) -lft -Llibft -I $(HEADERS_DIR) -I $(HEADERS_LIB) $(OBJS) -o $(NAME)
 	@printf "$(GREEN)Executable $(BOLD)$(NAME)$(END_GRAPHICS)$(GREEN) has been created.$(END_GRAPHICS)\n"
+	@printf "$(RED)Warning : -Werror is disabled !$(END_GRAPHICS)\n"
 
 $(LIB) :
 	@make -C libft -j8
