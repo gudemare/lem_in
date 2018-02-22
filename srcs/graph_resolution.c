@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 18:15:17 by mgonon            #+#    #+#             */
-/*   Updated: 2018/02/22 19:46:20 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 19:57:09 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ static void		apply_weight(t_node *node, t_node *start_node, int weight)
 {
 	t_list	*links;
 
-	links = node->links;
+	if (!node || !start_node || !(links = node->links))
+		ft_exit("Error : No path found.", 0, 1);
 	if (node == start_node)
 	{
 		node->weight = weight;
@@ -71,7 +72,6 @@ static void		debug_path(char **shortest_path)
 {
 	int	i;
 
-	return ;
 	i = -1;
 	ft_printf("The shortest path is: ");
 	while (shortest_path[++i])
