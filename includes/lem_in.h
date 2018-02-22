@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/21 22:07:29 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/22 16:57:05 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,6 @@ int					add_link(t_anthill *anthill, char *link_input);
 t_node				*get_node_by_name(t_anthill *anthill, char *name);
 void				resolve_graph(t_anthill *anthill);
 void				disp_graph_data(t_anthill *anthill);
+int					add_link_list(t_node *link_start, t_node *link_end);
 
 #endif
