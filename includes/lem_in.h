@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/14 04:52:57 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 23:14:53 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/23 13:20:46 by mgonon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ void				ft_free_exit(t_anthill *anthill, char *message,
 					int disp_errno, int must_exit);
 void				empty_node_links(void *links_input, size_t size);
 void				empty_node(void *node_input, size_t size);
+char				*ft_strjoin_free(char **s1, char *s2);
 
 #endif
