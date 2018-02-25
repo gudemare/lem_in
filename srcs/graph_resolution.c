@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 18:15:17 by mgonon            #+#    #+#             */
-/*   Updated: 2018/02/25 16:23:45 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/25 16:52:53 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ static void		get_shortest_path(t_node *node, char **shortest_path, int i,
 	}
 	if (node->weight == weight - 1)
 	{
-		shortest_path[i] = ft_strdup(node->node_name);
+		if (!(shortest_path[i] = ft_strdup(node->node_name)))
+			ft_free_exit(anthill, "Malloc error.", 1, 1);
 		get_shortest_path(node, shortest_path, i + 1, anthill);
 	}
 	else
