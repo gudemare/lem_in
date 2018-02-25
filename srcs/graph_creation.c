@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 23:29:02 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/22 23:16:58 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/25 17:13:20 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,14 +93,14 @@ int				add_link(t_anthill *anthill, char *link_input)
 		(size_t)ft_strchr_loc(link_input, '-'))))
 		ft_free_exit(anthill, "Error : Insufficient memory.", 1, 1);
 	if (!(link_start = get_node_by_name(anthill, tmp_name)))
-		ft_free_exit(anthill, "Error : Bad node name in link.", 1, 1);
+		return (0);
 	ft_strdel(&tmp_name);
 	if (!(tmp_name = ft_strsub(link_input,
 		(unsigned int)ft_strchr_loc(link_input, '-') + 1,
 		ft_strlen(link_input))))
 		ft_free_exit(anthill, "Error : Insufficient memory.", 1, 1);
 	if (!(link_end = get_node_by_name(anthill, tmp_name)))
-		ft_free_exit(anthill, "Error : Bad node name in link.", 1, 1);
+		return (0);
 	ft_strdel(&tmp_name);
 	add_link_list(link_start, link_end, anthill);
 	add_link_list(link_end, link_start, anthill);
