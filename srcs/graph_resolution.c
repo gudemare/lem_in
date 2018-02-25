@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/21 18:15:17 by mgonon            #+#    #+#             */
-/*   Updated: 2018/02/25 16:52:53 by gudemare         ###   ########.fr       */
+/*   Updated: 2018/02/25 17:07:51 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ void			resolve_graph(t_anthill *anthill)
 	apply_weight(anthill->end_node, anthill->start_node, 0, anthill);
 	path_size = (size_t)(anthill->start_node->weight + 1);
 	anthill->path_length = path_size;
+	if (path_size == 0)
+		ft_free_exit(anthill, "Error : No path found.", 0, 1);
 	if (!(anthill->shortest_path =
 		(char **)malloc(sizeof(char *) * path_size + 1)))
 		ft_free_exit(anthill, "Error : Insufficient memory.", 1, 1);
