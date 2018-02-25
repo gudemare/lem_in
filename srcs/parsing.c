@@ -6,7 +6,7 @@
 /*   By: mgonon <mgonon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/20 20:46:43 by gudemare          #+#    #+#             */
-/*   Updated: 2018/02/23 13:27:01 by mgonon           ###   ########.fr       */
+/*   Updated: 2018/02/25 16:33:05 by gudemare         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,10 @@ static void		get_graph(t_anthill *anthill)
 	{
 		if (!add_data(anthill, str, line_type))
 			break ;
-		if (!(anthill->entry_file = ft_strjoin_free(&(anthill->entry_file), str))
-			|| !(anthill->entry_file = ft_strjoin_free(&(anthill->entry_file), "\n")))
+		if (!(anthill->entry_file =
+			ft_strjoin_free(&(anthill->entry_file), str))
+			|| !(anthill->entry_file =
+			ft_strjoin_free(&(anthill->entry_file), "\n")))
 			ft_free_exit(anthill, "Error : Insufficient memory.", 1, 1);
 		ft_strdel(&str);
 		ret = get_next_line(0, &str, 64);
